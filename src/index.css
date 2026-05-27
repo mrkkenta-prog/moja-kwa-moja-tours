@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+@theme {
+  --color-safari-black: #1a1611;
+  --color-safari-charcoal: #2d2821;
+  --color-safari-brown: #4a3c2e;
+  --color-safari-leather: #6b5340;
+  --color-safari-sand: #c4a97d;
+  --color-safari-cream: #f5efe6;
+  --color-safari-warm: #faf6f0;
+  --color-safari-gold: #d4a843;
+  --color-safari-orange: #c4743a;
+  --color-safari-red: #a63d2f;
+  --color-safari-olive: #5a6e4e;
+  --color-safari-green: #3d5a3a;
+  --color-safari-clay: #8b6e52;
+  --color-safari-dust: #b89c7a;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-safari-warm);
+  color: var(--color-safari-charcoal);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-safari-gold);
+  color: var(--color-safari-black);
+}
+
+/* Hide scrollbar completely for clean cinematic experience */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Smooth, performant animations using transforms and opacity only */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(24px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { 
+    opacity: 0; 
+    transform: translateX(-30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes slideInRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* Smooth Ken Burns effect for hero images */
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+@keyframes slowPan {
+  0% { transform: scale(1.02); }
+  100% { transform: scale(1.08); }
+}
+
+/* Animation classes with will-change for GPU acceleration */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: opacity, transform;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+  will-change: opacity;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: opacity, transform;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: opacity, transform;
+}
+
+.animate-ken-burns {
+  animation: kenBurns 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-slow-pan {
+  animation: slowPan 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Subtle safari pattern background */
+.safari-pattern {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 12px,
+      rgba(196, 169, 125, 0.03) 12px,
+      rgba(196, 169, 125, 0.03) 13px
+    );
+}
+
+/* Maasai-inspired decorative borders */
+.maasai-border {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-safari-red) 0px,
+    var(--color-safari-red) 8px,
+    transparent 8px,
+    transparent 12px,
+    var(--color-safari-gold) 12px,
+    var(--color-safari-gold) 20px,
+    transparent 20px,
+    transparent 24px,
+    var(--color-safari-olive) 24px,
+    var(--color-safari-olive) 32px,
+    transparent 32px,
+    transparent 36px
+  );
+  height: 3px;
+}
+
+.maasai-border-thick {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-safari-red) 0px,
+    var(--color-safari-red) 14px,
+    var(--color-safari-black) 14px,
+    var(--color-safari-black) 18px,
+    var(--color-safari-gold) 18px,
+    var(--color-safari-gold) 32px,
+    var(--color-safari-black) 32px,
+    var(--color-safari-black) 36px,
+    var(--color-safari-olive) 36px,
+    var(--color-safari-olive) 50px,
+    var(--color-safari-black) 50px,
+    var(--color-safari-black) 54px
+  );
+  height: 4px;
+}
+
+/* Text shadows for hero text */
+.text-shadow-hero {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45), 0 4px 24px rgba(0,0,0,0.25);
+}
+
+.text-shadow-soft {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+}
+
+/* Smooth image hover transitions */
+.img-safari {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.img-safari:hover {
+  transform: scale(1.03);
+}
+
+/* Card hover effects */
+.card-safari {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.card-safari:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26, 22, 17, 0.12);
+}
+
+/* Cinematic gradient overlays */
+.gradient-safari-dark {
+  background: linear-gradient(180deg, transparent 0%, rgba(26,22,17,0.2) 40%, rgba(26,22,17,0.7) 100%);
+}
+
+.gradient-safari-top {
+  background: linear-gradient(180deg, rgba(26,22,17,0.45) 0%, transparent 100%);
+}
+
+.overlay-cinematic {
+  background: linear-gradient(135deg, rgba(26,22,17,0.55) 0%, rgba(26,22,17,0.1) 50%, rgba(26,22,17,0.4) 100%);
+}
+
+/* Button effects */
+.btn-safari {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  will-change: transform, background-color;
+}
+
+.btn-safari::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.4s ease;
+}
+
+.btn-safari:hover::before {
+  left: 100%;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Diamond separator decoration */
+.safari-diamond-sep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.safari-diamond-sep::before,
+.safari-diamond-sep::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-safari-sand), transparent);
+}
+
+.safari-diamond-sep .diamond {
+  width: 5px;
+  height: 5px;
+  background: var(--color-safari-gold);
+  transform: rotate(45deg);
+}
+
+/* Woven pattern border */
+.woven-border {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-safari-gold) 0px,
+    var(--color-safari-gold) 2px,
+    transparent 2px,
+    transparent 5px,
+    var(--color-safari-red) 5px,
+    var(--color-safari-red) 7px,
+    transparent 7px,
+    transparent 10px
+  );
+  height: 2px;
+  opacity: 0.4;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-ken-burns,
+  .animate-slow-pan {
+    animation: none;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .animate-ken-burns {
+    animation-duration: 25s;
+  }
+  
+  .animate-slow-pan {
+    animation-duration: 28s;
+  }
+  
+  .card-safari:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
